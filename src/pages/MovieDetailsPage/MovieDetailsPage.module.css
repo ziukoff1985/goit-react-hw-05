@@ -1,0 +1,115 @@
+.wrapper {
+  max-width: 90vw;
+  margin: 10px auto 0;
+}
+
+.img_info_wrap {
+  display: flex;
+  border-radius: 20px;
+  border: 3px solid gray;
+  gap: 20px;
+  background-color: rgb(231, 231, 231);
+  overflow: hidden;
+}
+
+.image {
+  width: 100%; /* Або вказати конкретну ширину */
+  height: auto; /* Автоматична висота для збереження пропорцій */
+  object-fit: cover; /* Або object-fit: cover, в залежності від ваших вимог */
+}
+
+.infoWrap {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: start;
+}
+
+.title {
+  display: block;
+  font-size: 36px;
+  margin-bottom: 20px;
+  /* margin-top: 20px; */
+  text-align: center;
+  color: orangered;
+}
+
+.paragpaph {
+  display: flex;
+  gap: 10px;
+  font-size: 18px;
+  align-items: center;
+}
+
+.infoWrap .overview {
+  display: flex;
+  flex-direction: column;
+  /* margin-top: 50px; */
+  font-size: 18px;
+  align-items: start;
+  text-align: left;
+}
+
+.nav {
+  margin-top: auto;
+  display: flex;
+  gap: 20px;
+}
+
+.link {
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: orangered;
+  color: white;
+  border-radius: 10px;
+}
+
+/* Медіа-запит для маленьких екранів */
+@media (max-width: 1280px) {
+  .wrapper {
+    max-width: 80vw; /* Ширина 100% від екрана */
+    margin: 10px auto; /* Відступи зверху і знизу */
+  }
+
+  .img_info_wrap {
+    flex-direction: column; /* Перехід на вертикальне розташування */
+    gap: 10px; /* Менший проміжок між елементами */
+  }
+
+  .image {
+    width: 100%; /* Картинка займає 100% ширини контейнера */
+    height: auto; /* Зберігаються пропорції */
+    object-fit: cover; /* Картинка заповнює контейнер */
+  }
+
+  .infoWrap {
+    padding: 10px; /* Менші відступи */
+    gap: 10px; /* Менший проміжок між елементами */
+  }
+
+  .title {
+    font-size: 24px; /* Менший розмір заголовка */
+    text-align: left; /* Заголовок вирівнюється ліворуч */
+  }
+
+  .paragpaph {
+    font-size: 16px; /* Менший розмір тексту */
+    gap: 5px; /* Менший проміжок між значенням і іконкою */
+  }
+
+  .infoWrap .overview {
+    font-size: 16px; /* Зменшення розміру тексту */
+  }
+
+  .nav {
+    flex-direction: column; /* Перехід на вертикальне розташування навігації */
+    gap: 10px; /* Менші відступи між кнопками */
+  }
+
+  .link {
+    font-size: 16px; /* Менший розмір шрифта */
+    padding: 8px 16px; /* Менші відступи кнопок */
+  }
+}
