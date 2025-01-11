@@ -1,9 +1,11 @@
 .filmList {
-  padding: 50px 50px 0;
+  padding: 20px 100px 0px 100px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .filmItem {
@@ -11,10 +13,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* outline: 3px solid darkgray; */
   border-radius: 15px;
   overflow: hidden;
   border: 2px solid darkgray;
+  /* box-shadow: 0 4px 8px darkgrey, 0 6px 20px darkgray; */
+  transition: box-shadow 0.3s ease, transform 0.5s ease;
+  overflow: hidden;
+}
+
+.filmItem:hover {
+  box-shadow: 0 8px 16px rgb(255, 255, 255), 0 12px 24px rgba(255, 255, 255, 0);
+  transform: scale(1.05);
 }
 
 .filmTitle {

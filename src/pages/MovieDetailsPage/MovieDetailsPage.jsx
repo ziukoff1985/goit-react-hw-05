@@ -43,7 +43,11 @@ const MovieDetailsPage = () => {
       <div className={s.img_info_wrap}>
         <img
           className={s.image}
-          src={`https://image.tmdb.org/t/p/w400/${movie.poster_path}`}
+          src={
+            movie.poster_path
+              ? `https://image.tmdb.org/t/p/w400/${movie.poster_path}`
+              : 'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'
+          }
           alt={movie.title}
         />
         <div className={s.infoWrap}>

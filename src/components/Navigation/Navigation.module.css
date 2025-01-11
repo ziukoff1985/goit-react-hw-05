@@ -6,6 +6,10 @@
   justify-content: space-between;
 }
 
+.logo_link {
+  text-decoration: none;
+}
+
 .logo {
   display: flex;
   align-items: center;

@@ -4,16 +4,71 @@
   align-items: center;
   margin-top: 20px;
   margin-bottom: 20px;
+  gap: 10px;
 }
 
 .input {
-  padding: 8px;
-  font-size: 16px;
-  width: 200px;
+  padding: 10px 10px 10px 15px;
+  width: 300px;
+  border: 3px solid rgba(56, 182, 255, 0.5);
+  border-radius: 50px;
+  transition: all 0.5s ease;
+}
+
+.input:active,
+.input:focus {
+  outline: none;
+  border: 3px solid orangered;
 }
 
 .button {
   padding: 8px 16px;
   font-size: 16px;
   cursor: pointer;
+}
+
+.button {
+  /* font-family: 'IBM Plex Mono', serif; */
+  position: relative;
+  margin-left: 10px;
+  padding: 10px 20px;
+  display: flex; /* Для вирівнювання тексту та іконки */
+  align-items: center;
+  gap: 8px; /* Відстань між іконкою та текстом */
+  background-color: transparent;
+  color: #ffffff; /* Чорний колір тексту та іконки */
+  border: 3px solid rgba(56, 182, 255, 0.5);
+  border-radius: 50px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.button:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0; /* Початкове положення псевдоелемента */
+  width: 0; /* Початкова ширина — невидимий */
+  height: 100%; /* Висота рівна висоті кнопки */
+  background: white;
+  border-radius: 50px;
+  transition: all 0.3s ease; /* Плавний перехід */
+  z-index: -1;
+}
+
+.button:hover:before {
+  width: 100%; /* Розтягується на всю ширину кнопки при наведенні */
+  background: orangered;
+  border: 3px solid orangered;
+}
+
+.button span {
+  position: relative;
+  line-height: 18px;
+  vertical-align: middle;
+}
+
+.button:active {
+  transform: scale(0.96);
 }

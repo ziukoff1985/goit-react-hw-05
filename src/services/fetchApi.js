@@ -25,9 +25,9 @@ export const fetchMovieById = async id => {
 };
 
 // Функція для пошуку фільму по запиту
-export const fetchMovieByQuery = async query => {
+export const fetchMovieByQuery = async (query, page = 1) => {
   const response = await axios.get('search/movie', {
-    params: { api_key: API_KEY, query },
+    params: { api_key: API_KEY, query, page },
   });
   console.log(response);
   return response.data;

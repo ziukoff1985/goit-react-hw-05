@@ -7,6 +7,7 @@ import SearchForm from '../../components/SearchForm/SearchForm';
 import NoResultsNotification from '../../components/NoResultsNotification/NoResultsNotification';
 import { Toaster } from 'react-hot-toast';
 import Loader from '../../components/Loader/Loader';
+import LoadMoreButton from '../../components/LoadMoreButton/LoadMoreButton';
 
 const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -14,6 +15,8 @@ const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [isNotFound, setIsNotFound] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
     if (!query) return;
@@ -22,13 +25,16 @@ const MoviesPage = () => {
       setIsNotFound(false);
       setIsLoading(true);
       try {
-        const fetchedMovies = await fetchMovieByQuery(query);
+        const { results, total_pages } = await fetchMovieByQuery(query, page);
 
-        if (fetchedMovies.results.length === 0) {
+        if (results.length === 0) {
           setIsNotFound(true);
         }
 
-        setMovies(fetchedMovies.results);
+        setMovies(prevMovies =>
+          page === 1 ? results : [...prevMovies, ...results]
+        );
+        setTotalPages(total_pages);
       } catch (error) {
         console.error('Error fetching movies:', error);
       } finally {
@@ -37,7 +43,7 @@ const MoviesPage = () => {
     };
 
     fetchMovies();
-  }, [query]);
+  }, [query, page]);
 
   const handleSearchSubmit = (values, actions) => {
     if (values.search.trim() === '') {
@@ -48,6 +54,12 @@ const MoviesPage = () => {
     actions.resetForm();
   };
 
+  const handleLoadMore = () => {
+    if (page < totalPages) {
+      setPage(prevPage => prevPage + 1);
+    }
+  };
+
   return (
     <div className={s.moviesPage}>
       <Toaster position="top-center" reverseOrder={false} />
@@ -56,10 +68,7 @@ const MoviesPage = () => {
       {isLoading && <Loader />}
 
       {movies.length > 0 && <MovieList movies={movies} />}
-
-      {query && movies.length === 0 && (
-        <p className={s.noResults}>No movies found for {query}.</p>
-      )}
+      {page < totalPages && <LoadMoreButton onClick={handleLoadMore} />}
     </div>
   );
 };

@@ -10,7 +10,7 @@ const buildLinkClass = ({ isActive }) => {
 const Navigation = () => {
   return (
     <div className={s.navHeader}>
-      <Link to="/">
+      <Link to="/" className={s.logo_link}>
         <div className={s.logo}>
           <span>
             <FaFilm className={s.logoIcon} />

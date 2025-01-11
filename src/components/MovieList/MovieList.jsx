@@ -18,7 +18,7 @@ const MovieList = ({ movies }) => {
                 src={
                   movie.poster_path
                     ? `https://image.tmdb.org/t/p/w400/${movie.poster_path}`
-                    : 'placeholder.jpg'
+                    : 'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'
                 }
                 alt={movie.title || 'No title available'}
                 className={s.filmImage}
