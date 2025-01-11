@@ -10,8 +10,6 @@ export const fetchTrendingMovies = async page => {
     params: { api_key: API_KEY, page },
   });
 
-  console.log(response);
-
   return response.data;
 };
 
@@ -20,7 +18,7 @@ export const fetchMovieById = async id => {
   const response = await axios.get(`movie/${id}`, {
     params: { api_key: API_KEY },
   });
-  console.log(response);
+
   return response.data;
 };
 
@@ -29,7 +27,7 @@ export const fetchMovieByQuery = async (query, page = 1) => {
   const response = await axios.get('search/movie', {
     params: { api_key: API_KEY, query, page },
   });
-  console.log(response);
+
   return response.data;
 };
 
@@ -38,7 +36,7 @@ export const fetchMovieReviewById = async id => {
   const response = await axios.get(`/movie/${id}/reviews`, {
     params: { api_key: API_KEY },
   });
-  console.log(response);
+
   return response.data;
 };
 
@@ -46,6 +44,6 @@ export const fetchMovieCastById = async id => {
   const response = await axios.get(`/movie/${id}/credits`, {
     params: { api_key: API_KEY },
   });
-  console.log(response);
+
   return response.data;
 };

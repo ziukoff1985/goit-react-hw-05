@@ -20,8 +20,6 @@ const HomePage = () => {
 
       try {
         const { results, total_pages } = await fetchTrendingMovies(page);
-        console.log(results);
-
         setMovies(prevMovies => [...prevMovies, ...results]);
         setTotalPages(total_pages);
       } catch (error) {
@@ -31,7 +29,6 @@ const HomePage = () => {
         setIsLoading(false);
       }
     };
-
     getTrendingMovies();
   }, [page]);
 

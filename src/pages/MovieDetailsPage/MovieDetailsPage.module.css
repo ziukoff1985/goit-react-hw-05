@@ -90,50 +90,49 @@
   fill: rgb(0, 0, 0);
 }
 
-/* Медіа-запит для маленьких екранів */
 @media (max-width: 768px) {
   .wrapper {
-    max-width: 80vw; /* Ширина 100% від екрана */
-    margin: 10px auto; /* Відступи зверху і знизу */
+    max-width: 80vw;
+    margin: 10px auto;
   }
 
   .img_info_wrap {
-    flex-direction: column; /* Перехід на вертикальне розташування */
-    gap: 10px; /* Менший проміжок між елементами */
+    flex-direction: column;
+    gap: 10px;
   }
 
   .image {
-    max-width: 100%; /* Картинка займає 100% ширини контейнера */
-    height: auto; /* Зберігаються пропорції */
-    object-fit: cover; /* Картинка заповнює контейнер */
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
   }
 
   .infoWrap {
-    padding: 10px; /* Менші відступи */
-    gap: 10px; /* Менший проміжок між елементами */
+    padding: 10px;
+    gap: 10px;
   }
 
   .title {
-    font-size: 24px; /* Менший розмір заголовка */
-    text-align: left; /* Заголовок вирівнюється ліворуч */
+    font-size: 24px;
+    text-align: left;
   }
 
   .paragpaph {
-    font-size: 16px; /* Менший розмір тексту */
-    gap: 5px; /* Менший проміжок між значенням і іконкою */
+    font-size: 16px;
+    gap: 5px;
   }
 
   .infoWrap .overview {
-    font-size: 16px; /* Зменшення розміру тексту */
+    font-size: 16px;
   }
 
   .nav {
-    flex-direction: column; /* Перехід на вертикальне розташування навігації */
-    gap: 10px; /* Менші відступи між кнопками */
+    flex-direction: column;
+    gap: 10px;
   }
 
   .link {
-    font-size: 16px; /* Менший розмір шрифта */
-    padding: 8px 16px; /* Менші відступи кнопок */
+    font-size: 16px;
+    padding: 8px 16px;
   }
 }

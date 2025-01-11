@@ -21,17 +21,17 @@ const MovieDetailsPage = () => {
   useEffect(() => {
     const getMovieById = async () => {
       try {
-        const result = await fetchMovieById(movieId); // Завантажуємо фільм за ID
-        setMovie(result); // Оновлюємо стан з отриманими даними
+        const result = await fetchMovieById(movieId);
+        setMovie(result);
       } catch (error) {
         console.error('Error:', error);
       }
     };
-    getMovieById(); // Викликаємо функцію запиту
-  }, [movieId]); // Завдяки залежності useEffect викликається тільки при зміні movieId
+    getMovieById();
+  }, [movieId]);
 
   if (!movie) {
-    return <div>Loading...</div>; // Виводимо Loading поки не завантажено
+    return <div>Loading...</div>;
   }
 
   return (
@@ -81,7 +81,6 @@ const MovieDetailsPage = () => {
           </nav>
         </div>
       </div>
-
       <Outlet />
     </div>
   );

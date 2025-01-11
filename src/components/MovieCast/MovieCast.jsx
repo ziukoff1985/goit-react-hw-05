@@ -24,7 +24,7 @@ const MovieCast = () => {
   }, [movieId]);
 
   if (!cast || cast.length === 0) {
-    return <p className={s.noCast}>No cast information available.</p>; // Повідомлення, якщо каст порожній
+    return <p className={s.noCast}>No cast information available.</p>;
   }
 
   return (

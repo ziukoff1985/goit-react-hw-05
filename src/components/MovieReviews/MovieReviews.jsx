@@ -9,14 +9,14 @@ import { Pagination, Navigation } from 'swiper/modules';
 import s from './MovieReviews.module.css';
 
 const MovieReviews = () => {
-  const [reviews, setReviews] = useState(null); // Стан для відгуків
-  const { movieId } = useParams(); // Отримуємо ID фільму з URL
+  const [reviews, setReviews] = useState(null);
+  const { movieId } = useParams();
 
   useEffect(() => {
     const getReviewsById = async () => {
       try {
-        const result = await fetchMovieReviewById(movieId); // Запит на API
-        setReviews(result.results); // Зберігаємо отримані відгуки
+        const result = await fetchMovieReviewById(movieId); 
+        setReviews(result.results);
       } catch (error) {
         console.error('Error:', error);
       }
@@ -25,21 +25,21 @@ const MovieReviews = () => {
   }, [movieId]);
 
   if (!reviews) {
-    return <div>Loading...</div>; // Відображення під час завантаження
+    return <div>Loading...</div>;
   }
 
   if (reviews.length === 0) {
-    return <p className={s.noReviews}>No reviews available for this movie.</p>; // Повідомлення, якщо немає відгуків
+    return <p className={s.noReviews}>No reviews available for this movie.</p>;
   }
 
   return (
     <div className={s.reviewContainer}>
       <Swiper
-        modules={[Pagination, Navigation]} // Модулі для Swiper
-        pagination={{ clickable: true }} // Включення пагінації
-        navigation={true} // Включення навігаційних кнопок
-        spaceBetween={16} // Відстань між слайдами
-        slidesPerView={1} // Кількість слайдів, що відображаються одночасно
+        modules={[Pagination, Navigation]}
+        pagination={{ clickable: true }}
+        navigation={true}
+        spaceBetween={16}
+        slidesPerView={1} 
       >
         {reviews.map(({ id, author, content }) => (
           <SwiperSlide key={id}>

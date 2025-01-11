@@ -41,7 +41,6 @@ const MoviesPage = () => {
         setIsLoading(false);
       }
     };
-
     fetchMovies();
   }, [query, page]);
 
