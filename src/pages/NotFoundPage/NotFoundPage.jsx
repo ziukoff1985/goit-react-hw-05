@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import s from './NotFoundPage.module.css';
 
 const NotFoundPage = () => {
@@ -8,10 +9,12 @@ const NotFoundPage = () => {
       </div>
       <div className={s.content}>
         <h1 className={s.mainHeading}>This page is gone.</h1>
-        <p>
+        <p className={s.message}>
           ...maybe the page you are looking for is not found or never existed.
         </p>
-        <button>Back to home</button>
+        <Link to="/" className={s.back_link}>
+          Back to home
+        </Link>
       </div>
     </div>
   );

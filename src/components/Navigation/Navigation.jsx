@@ -1,7 +1,7 @@
 import { FaFilm } from 'react-icons/fa';
 import s from './Navigation.module.css';
 import { clsx } from 'clsx';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const buildLinkClass = ({ isActive }) => {
   return clsx(s.navLink, isActive && s.navActive);
@@ -10,15 +10,17 @@ const buildLinkClass = ({ isActive }) => {
 const Navigation = () => {
   return (
     <div className={s.navHeader}>
-      <div className={s.logo}>
-        <span>
-          <FaFilm className={s.logoIcon} />
-        </span>
-        <h2 className={s.logoTitle}>Filmoteka</h2>
-        <span>
-          <FaFilm className={s.logoIcon} />
-        </span>
-      </div>
+      <Link to="/">
+        <div className={s.logo}>
+          <span>
+            <FaFilm className={s.logoIcon} />
+          </span>
+          <h2 className={s.logoTitle}>Filmoteka</h2>
+          <span>
+            <FaFilm className={s.logoIcon} />
+          </span>
+        </div>
+      </Link>
       <nav className={s.navigation}>
         <NavLink to="/" className={buildLinkClass}>
           Home

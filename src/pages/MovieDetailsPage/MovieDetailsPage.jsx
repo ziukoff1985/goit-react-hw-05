@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { fetchMovieById } from '../../services/fetchApi';
 import { NavLink, Outlet } from 'react-router-dom';
 import { FaRegCalendarAlt, FaStar, FaTags } from 'react-icons/fa';
 import s from './MovieDetailsPage.module.css';
 import clsx from 'clsx';
+import { useRef } from 'react';
+import { IoIosArrowBack } from 'react-icons/io';
 
 const buildLinkClass = ({ isActive }) => {
   return clsx(s.link, isActive && s.active);
@@ -13,6 +15,8 @@ const buildLinkClass = ({ isActive }) => {
 const MovieDetailsPage = () => {
   const [movie, setMovie] = useState(null);
   const { movieId } = useParams();
+  const location = useLocation();
+  const goBackLink = useRef(location.state ?? '/movies');
 
   useEffect(() => {
     const getMovieById = async () => {
@@ -32,6 +36,10 @@ const MovieDetailsPage = () => {
 
   return (
     <div className={s.wrapper}>
+      <Link to={goBackLink.current} className={s.back}>
+        <IoIosArrowBack className={s.icon_back} />
+        Go back
+      </Link>
       <div className={s.img_info_wrap}>
         <img
           className={s.image}
