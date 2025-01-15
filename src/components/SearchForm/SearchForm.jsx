@@ -1,17 +1,28 @@
-import { Formik, Form, Field } from 'formik';
-import s from './SearchForm.module.css';
+import { Formik, Form, Field } from 'formik'; // Імпорт бібліотеки `Formik`
+import s from './SearchForm.module.css'; // CSS-стилі
 
+// Компонент `SearchForm`, що приймає два пропса (з 'MoviesPage'):
+// - `onSubmit`: функція-обробник для події відправлення форми.
+// - `initialQuery`: початкове значення для поля пошуку.
 const SearchForm = ({ onSubmit, initialQuery }) => {
   return (
+    // Компонент <Formik>
+    // - `initialValues` — об'єкт із початковими значеннями поля форми (ключ `search`).
+    // - `onSubmit` — функція, яка викликається при відправці форми.
     <Formik initialValues={{ search: initialQuery }} onSubmit={onSubmit}>
+      {/* Компонент <Form */}
       <Form className={s.form}>
+        {/* Компонент <Field> - поле вводу (input).
+          - `name="search"` => ім'я поля, відповідає ключу  */}
         <Field
           type="text"
           name="search"
           placeholder="Enter movie title..."
           className={s.input}
         />
+        {/* Кнопка для подання форми */}
         <button type="submit" className={s.button}>
+          {/* SVG-іконка (лупа) */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
