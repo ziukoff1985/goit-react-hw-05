@@ -72,3 +72,10 @@
 .button:active {
   transform: scale(0.96);
 }
+
+@media (max-width: 768px) {
+  .form {
+    gap: 0;
+    padding: 0 10px;
+  }
+}
